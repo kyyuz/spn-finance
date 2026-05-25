@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Conta | SPN Finance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .blur {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #38bdf8;
+      opacity: 0.15;
+      filter: blur(180px);
+      border-radius: 50%;
+      top: -100px;
+      left: -100px;
+    }
+
+    .blur2 {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: #22c55e;
+      opacity: 0.12;
+      filter: blur(160px);
+      border-radius: 50%;
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .register-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      background: rgba(30, 41, 59, 0.88);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 45px;
+      box-shadow: 0 0 50px rgba(0,0,0,0.4);
+      z-index: 10;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      transform: translateX(-5px);
+      opacity: 0.8;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .logo h1 {
+      font-size: 2.3rem;
+      color: white;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    .logo p {
+      margin-top: 12px;
+      color: #94a3b8;
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #cbd5e1;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: #0f172a;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.15);
+    }
+
+    .register-btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .register-btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.95;
+    }
+
+    .terms {
+      margin-top: 20px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .terms a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 28px;
+      color: #94a3b8;
+    }
+
+    .login-link a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media(max-width: 550px) {
+      .register-container {
+        padding: 35px 25px;
+      }
+
+      .logo h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blur"></div>
+  <div class="blur2"></div>
+
+  <div class="register-container">
+
+    <a href="index.html" class="back-btn">
+      ← Voltar para o início
+    </a>
+
+    <div class="logo">
+      <h1>SPN <span>Finance</span></h1>
+
+      <p>
+        Crie sua conta gratuitamente e comece agora
+        a organizar sua vida financeira de maneira inteligente.
+      </p>
+    </div>
+
+    <form>
+
+      <div class="input-group">
+        <label>Nome completo</label>
+        <input type="text" placeholder="Digite seu nome" />
+      </div>
+
+      <div class="input-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="Digite seu e-mail" />
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <input type="password" placeholder="Crie uma senha" />
+      </div>
+
+      <div class="input-group">
+        <label>Confirmar senha</label>
+        <input type="password" placeholder="Repita sua senha" />
+      </div>
+
+      <button type="submit" class="register-btn">
+        Criar Conta
+      </button>
+
+    </form>
+
+    <div class="terms">
+      Ao criar sua conta, você concorda com nossos
+      <a href="#">Termos de Uso</a>
+      e
+      <a href="#">Política de Privacidade</a>.
+    </div>
+
+    <div class="login-link">
+      Já possui conta?
+      <a href="login.html">Entrar</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

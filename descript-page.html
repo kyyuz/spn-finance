@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre o Projeto | SPN Finance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #020617;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .blur {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      background: #38bdf8;
+      opacity: 0.12;
+      filter: blur(180px);
+      border-radius: 50%;
+      top: -150px;
+      right: -100px;
+      z-index: -1;
+    }
+
+    .blur2 {
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      background: #22c55e;
+      opacity: 0.1;
+      filter: blur(170px);
+      border-radius: 50%;
+      bottom: -120px;
+      left: -100px;
+      z-index: -1;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+      padding: 60px 0;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text small {
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin: 20px 0;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      font-size: 1.08rem;
+      margin-bottom: 35px;
+      max-width: 650px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #020617;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+      background: #38bdf8;
+      color: #020617;
+    }
+
+    .dashboard-preview {
+      flex: 1;
+      min-width: 320px;
+      background: rgba(30,41,59,0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 35px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .preview-header h3 {
+      font-size: 1.4rem;
+    }
+
+    .status {
+      background: rgba(34,197,94,0.15);
+      color: #22c55e;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #0f172a;
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .card small {
+      color: #94a3b8;
+    }
+
+    .card h2 {
+      margin-top: 12px;
+      font-size: 1.8rem;
+    }
+
+    .income {
+      color: #22c55e;
+    }
+
+    .expense {
+      color: #ef4444;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-box {
+      background: rgba(30,41,59,0.75);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 35px;
+      border-radius: 24px;
+      transition: 0.3s;
+      backdrop-filter: blur(12px);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56,189,248,0.35);
+    }
+
+    .feature-box h3 {
+      margin-bottom: 18px;
+      color: #38bdf8;
+      font-size: 1.3rem;
+    }
+
+    .feature-box p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 3rem;
+      margin-bottom: 25px;
+    }
+
+    .about-text p {
+      color: #cbd5e1;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      min-width: 300px;
+    }
+
+    .stat-box {
+      background: rgba(30,41,59,0.8);
+      border-radius: 22px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat-box h3 {
+      font-size: 2rem;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    .stat-box p {
+      color: #94a3b8;
+    }
+
+    footer {
+      padding: 45px 0;
+      text-align: center;
+      color: #64748b;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 40px;
+    }
+
+    @media(max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      .about-text h2 {
+        font-size: 2.2rem;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blur"></div>
+  <div class="blur2"></div>
+
+  <div class="container">
+
+    <header>
+      <div class="logo">SPN <span>Finance</span></div>
+
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Cadastro</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+
+      <div class="hero-text">
+        <small>Plataforma Financeira Inteligente</small>
+
+        <h1>
+          Transformando o controle financeiro em uma experiência moderna.
+        </h1>
+
+        <p>
+          O SPN Finance foi desenvolvido para ajudar pessoas a organizarem suas finanças pessoais de maneira prática, intuitiva e eficiente. A plataforma reúne recursos modernos de gestão financeira, dashboards inteligentes e automações que simplificam o acompanhamento de receitas, despesas e metas financeiras.
+        </p>
+
+        <div class="buttons">
+          <a href="register.html" class="btn btn-primary">
+            Criar Conta
+          </a>
+
+          <a href="login.html" class="btn btn-secondary">
+            Acessar Plataforma
+          </a>
+        </div>
+      </div>
+
+      <div class="dashboard-preview">
+
+        <div class="preview-header">
+          <h3>Dashboard Financeiro</h3>
+          <div class="status">Sistema Online</div>
+        </div>
+
+        <div class="cards">
+
+          <div class="card">
+            <small>Saldo Atual</small>
+            <h2>R$ 12.480</h2>
+          </div>
+
+          <div class="card">
+            <small>Receitas</small>
+            <h2 class="income">+ R$ 8.500</h2>
+          </div>
+
+          <div class="card">
+            <small>Despesas</small>
+            <h2 class="expense">- R$ 3.240</h2>
+          </div>
+
+          <div class="card">
+            <small>Metas</small>
+            <h2>84%</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="section-title">
+        <h2>Principais Funcionalidades</h2>
+
+        <p>
+          Recursos desenvolvidos para proporcionar organização financeira, automação e uma experiência moderna para o usuário.
+        </p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-box">
+          <h3>Controle de Receitas e Despesas</h3>
+          <p>
+            Registre movimentações financeiras e acompanhe em tempo real o fluxo de entrada e saída de dinheiro.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Dashboard Inteligente</h3>
+          <p>
+            Visualize gráficos, relatórios e métricas financeiras para tomar decisões mais estratégicas.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Recorrência Mensal</h3>
+          <p>
+            Automatize contas fixas e despesas recorrentes para facilitar o controle financeiro mensal.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Segurança de Dados</h3>
+          <p>
+            Sistema de autenticação seguro com armazenamento em nuvem utilizando tecnologias modernas.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Relatórios Financeiros</h3>
+          <p>
+            Gere análises detalhadas sobre gastos, categorias e desempenho financeiro.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>Interface Responsiva</h3>
+          <p>
+            Acesse a plataforma através de computadores, tablets e smartphones com total adaptação.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="about">
+
+        <div class="about-text">
+          <h2>Sobre o Projeto</h2>
+
+          <p>
+            O SPN Finance é um sistema financeiro pessoal desenvolvido com foco em praticidade, acessibilidade e experiência do usuário. O projeto busca oferecer uma solução moderna para pessoas que desejam acompanhar e organizar sua vida financeira de maneira eficiente.
+          </p>
+
+          <p>
+            A plataforma utiliza tecnologias modernas de desenvolvimento web para criar um ambiente seguro, intuitivo e escalável. Além de auxiliar no controle financeiro pessoal, o sistema também representa um projeto acadêmico e profissional voltado para aprendizado em Engenharia de Software e desenvolvimento Full Stack.
+          </p>
+        </div>
+
+        <div class="stats">
+
+          <div class="stat-box">
+            <h3>100%</h3>
+            <p>Responsivo</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>24h</h3>
+            <p>Monitoramento</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>Cloud</h3>
+            <p>Armazenamento</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>Secure</h3>
+            <p>Autenticação</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      © 2026 SPN Finance • Plataforma de Gerenciamento Financeiro
+    </footer>
+
+  </div>
+
+</body>
+</html>

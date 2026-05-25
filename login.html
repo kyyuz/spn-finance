@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | SPN Finance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .background-blur {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #38bdf8;
+      filter: blur(180px);
+      opacity: 0.15;
+      border-radius: 50%;
+      top: -120px;
+      right: -100px;
+    }
+
+    .background-blur-2 {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: #22c55e;
+      filter: blur(160px);
+      opacity: 0.12;
+      border-radius: 50%;
+      bottom: -100px;
+      left: -80px;
+    }
+    .back-btn {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    }
+
+    .back-btn:hover {
+    transform: translateX(-5px);
+    opacity: 0.8;
+    }
+
+    .login-container {
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 45px;
+      box-shadow: 0 0 50px rgba(0,0,0,0.4);
+      z-index: 10;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo h1 {
+      font-size: 2.2rem;
+      color: white;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    .logo p {
+      margin-top: 10px;
+      color: #94a3b8;
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+
+    .input-group {
+      margin-bottom: 22px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #cbd5e1;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: #0f172a;
+      color: white;
+      font-size: 1rem;
+      transition: 0.3s;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.15);
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+    }
+
+    .options label {
+      color: #cbd5e1;
+    }
+
+    .options a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.95;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 30px 0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #334155;
+    }
+
+    .social-login {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .social-btn:hover {
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+    }
+
+    .register {
+      text-align: center;
+      margin-top: 30px;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .register a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media(max-width: 500px) {
+      .login-container {
+        padding: 35px 25px;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+      }
+
+      .options {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-blur"></div>
+  <div class="background-blur-2"></div>
+
+  <div class="login-container"><a href="index.html" class="back-btn">← Voltar para o início</a></a>
+
+    <div class="logo">
+      <h1>SPN <span>Finance</span></h1>
+      <p>
+        Faça login para acessar seu painel financeiro,
+        controlar receitas, despesas e acompanhar seus relatórios.
+      </p>
+    </div>
+
+    <form>
+
+      <div class="input-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="Digite seu e-mail" />
+      </div>
+
+      <div class="input-group">
+        <label>Senha</label>
+        <input type="password" placeholder="Digite sua senha" />
+      </div>
+
+      <div class="options">
+        <label>
+          <input type="checkbox" />
+          Lembrar de mim
+        </label>
+
+        <a href="#">Esqueci minha senha</a>
+      </div>
+
+      <button class="login-btn" type="submit">
+        Entrar no Sistema
+      </button>
+
+    </form>
+
+    <div class="divider">
+      ou continue com
+    </div>
+
+    <div class="social-login">
+      <button class="social-btn">Google</button>
+      <button class="social-btn">GitHub</button>
+    </div>
+
+    <div class="register">
+      Não possui conta?
+      <a href="register.html">Criar conta</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
